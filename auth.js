@@ -9,4 +9,8 @@ const db = drizzle(sql);
 export const {
   handlers: { GET, POST },
   auth,
-} = NextAuth({ providers: [Google], adapter: DrizzleAdapter(db) });
+} = NextAuth({
+  providers: [Google],
+  adapter: DrizzleAdapter(db),
+  pages: { signIn: "/auth/signin" },
+});
